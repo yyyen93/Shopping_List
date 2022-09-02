@@ -23,10 +23,6 @@ for (var i = 0; i < li.length; i++) {
 	deleteButton(li[i]);
 }
 
-// Add class 'done' to the other 'li'
-ul.addEventListener('click', function () {
-	event.target.classList.toggle('done');
-})
 
 
 
@@ -41,7 +37,12 @@ function createListElement() {
 	var li = document.createElement("li");
 	li.appendChild(document.createTextNode(input.value));
 	deleteButton(li)
+	// Add class 'done' to the other 'li'
+	li.addEventListener('click', function (event) {
+		event.target.classList.toggle('done');
+	})
 	ul.appendChild(li);
+
 	input.value = "";
 }
 
